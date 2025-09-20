@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aurora Cat Café — PSI Test</title>
+  <meta name="description" content="เว็บตัวอย่างสำหรับทดสอบ PageSpeed Insights (PSI)">
+
+  <!-- ✅ Performance-friendly: preconnect + font-display:swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#0b1020; --card:#111733; --muted:#9fb0ff; --fg:#eaf0ff; --accent:#7aa7ff;
+    }
+    * { box-sizing: border-box; }
+    html,body { margin:0; font-family: 'Prompt', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--fg); }
+    a { color: var(--accent); text-decoration: none; }
+    .container { width: min(1100px, 92%); margin-inline:auto; }
+    header.hero { padding: 80px 0 40px; text-align:center; background: radial-gradient(1000px 400px at 50% -10%, rgba(122,167,255,.25), transparent), linear-gradient(180deg, rgba(122,167,255,.06), transparent);
+    }
+    .badge { display:inline-block; padding:.35rem .7rem; border:1px solid rgba(255,255,255,.15); border-radius:999px; font-size:.9rem; color:var(--muted); backdrop-filter: blur(4px); }
+    h1 { margin: 14px 0 10px; font-size: clamp(28px, 6vw, 48px); letter-spacing:.2px; }
+    .sub { color:#c9d3ff; opacity:.9; max-width:760px; margin:0 auto; line-height:1.7; }
+
+    .cta { margin-top:26px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn { padding:.85rem 1.05rem; border-radius:14px; border:1px solid rgba(255,255,255,.15); background:#1a2247; color:#fff; cursor:pointer; font-weight:600; transition: transform .15s ease, box-shadow .2s ease; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(122,167,255,.15); }
+    .btn.sec { background: transparent; color: var(--muted); }
+
+    .grid { display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: 36px 0 18px; }
+    .card { background: var(--card); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:18px; }
+    .card h3 { margin:6px 0 6px; font-size:1.1rem; }
+    .muted { color:#b9c6ff; opacity:.85; font-size:.98rem; }
+
+    .gallery { margin: 30px 0 50px; display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); }
+    .gallery img { width:100%; height:160px; object-fit:cover; border-radius:14px; border:1px solid rgba(255,255,255,.08); }
+
+    .footer { padding:30px 0 70px; text-align:center; color:#a8b6ff; opacity:.8; font-size:.95rem; }
+
+    /* Lightweight scroll-reveal */
+    [data-reveal] { opacity:0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
+    [data-reveal].in { opacity:1; transform: none; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <span class="badge">Aurora Cat Café • Demo for PSI</span>
+      <h1>คาเฟ่แมวใต้แสงออโรรา — เร็ว ลื่น และน่ารัก</h1>
+      <p class="sub">นี่คือหน้าเว็บตัวอย่างสำหรับ <strong>ทดสอบ PageSpeed Insights</strong> โครงสร้างถูกออกแบบให้รองรับทั้ง <em>Best Practices</em> และมีส่วนประกอบที่คุณสามารถปรับให้ “หนักขึ้น” เพื่อดูผลคะแนนเปลี่ยนอย่างไร</p>
+      <div class="cta">
+        <button class="btn" id="simulate">จำลองโหลดคิวงาน (simulate work)</button>
+        <a class="btn sec" href="#tips">ดูวิธีทำให้ช้าหรือเร็วขึ้น</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid" aria-label="features">
+      <article class="card" data-reveal>
+        <h3>☕ เมนูซิกเนเจอร์</h3>
+        <p class="muted">ลาเต้กาแลคซี โฟมวิบวับ เสิร์ฟพร้อมคุกกี้รูปอุกกาบาต</p>
+      </article>
+      <article class="card" data-reveal>
+        <h3>🐾 โซนเล่นกับน้อง</h3>
+        <p class="muted">น้องแมวขนฟู 8 ตัว ฉีดวัคซีนครบ มีของเล่นและที่ปีน</p>
+      </article>
+      <article class="card" data-reveal>
+        <h3>📶 Wi‑Fi & ปลั๊ก</h3>
+        <p class="muted">เหมาะอ่านหนังสือ/ทำงาน สัญญาณแรงทุกมุมร้าน</p>
+      </article>
+      <article class="card" data-reveal>
+        <h3>🌙 เปิดถึงดึก</h3>
+        <p class="muted">รับวิวออโรราจำลองบนฝ้าเพดาน แบบ AR ambient</p>
+      </article>
+    </section>
+
+    <section aria-labelledby="galtitle">
+      <h2 id="galtitle" style="margin:26px 0 10px">แกลเลอรี (lazy‑loaded)</h2>
+      <div class="gallery">
+        <!-- ใช้ loading="lazy" เพื่อลองผล LCP/CLS -->
+        <img loading="lazy" src="https://picsum.photos/seed/cat1/640/480" alt="แมวนั่งบนโต๊ะ">
+        <img loading="lazy" src="https://picsum.photos/seed/cat2/640/480" alt="แมวลายส้มกำลังหลับ">
+        <img loading="lazy" src="https://picsum.photos/seed/cat3/640/480" alt="แมวเล่นลูกบอลไหมพรม">
+        <img loading="lazy" src="https://picsum.photos/seed/cat4/640/480" alt="แมวกับแก้วกาแฟ">
+        <img loading="lazy" src="https://picsum.photos/seed/cat5/640/480" alt="แมวสองตัวนอนกอดกัน">
+        <img loading="lazy" src="https://picsum.photos/seed/cat6/640/480" alt="แมวจ้องกล้อง">
+      </div>
+    </section>
+
+    <section id="tips" class="card" style="margin: 8px 0 40px" aria-label="tips">
+      <h3 style="margin:0 0 10px">วิธีเล่นให้ PSI เปลี่ยนคะแนน</h3>
+      <ol class="muted" style="line-height:1.8; padding-left:1.2rem;">
+        <li><strong>ทำให้เร็วขึ้น</strong> — เปิด <code>defer</code> สคริปต์, คง <code>loading="lazy"</code>, ลดจำนวนรูป, เปิด compression/Brotli ที่โฮสต์</li>
+        <li><strong>ทำให้ช้าลง</strong> — ลอง <em>เอา defer ออก</em> ที่สคริปต์หลัก, เพิ่มรูปใหญ่ ๆ (เช่น 2000px), ใส่สคริปต์หนัก (ตัวอย่างอยู่ข้างล่าง)</li>
+        <li><strong>ทดสอบ LCP</strong> — ใส่รูปฮีโร่ใหญ่ ๆ ก่อนส่วนอื่น แล้วดูค่า LCP เปลี่ยน</li>
+        <li><strong>ทดสอบ CLS</strong> — ลองลบความกว้าง/ความสูงของรูป (ไม่แนะนำในโปรดักชัน) แล้วสังเกตการกระตุก</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    ทำด้วย ❤ เพื่อทดสอบ PageSpeed Insights · Aurora Cat Café
+  </footer>
+
+  <!-- ✅ Main script (deferred) -->
+  <script defer>
+    // Scroll reveal (lightweight)
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+
+    // Simulate CPU work to affect TBT/INP
+    document.getElementById('simulate').addEventListener('click', ()=>{
+      const start = performance.now();
+      // Busy loop ~150ms
+      while(performance.now() - start < 150) { Math.sqrt(Math.random()*999999); }
+      alert('จำลองงานเสร็จแล้ว! ลองกดวัด PSI ดูค่า INP/TBT');
+    });
+  </script>
+
+  <!-- ⚠️ OPTIONAL: Heavy script (intentionally blocking). Use to drop score. -->
+  <!--
+  <script>
+    // สคริปต์ตัวอย่างที่จงใจบล็อกเมนเธรด ~2s (อย่าใช้ในจริง)
+    const t0 = performance.now();
+    while(performance.now() - t0 < 2000) { const x = Math.tan(Math.random()); }
+    console.log('Heavy work done');
+  </script>
+  -->
+</body>
+</html>
